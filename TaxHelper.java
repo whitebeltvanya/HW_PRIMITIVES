@@ -18,7 +18,6 @@ public class TaxHelper {
 
         boolean isRunning = true;
         while (isRunning) {
-            int incomeCur = 0, outcomeCur = 0;
 
             System.out.print("Выберите операцию:");
             String action = scanner.next();
@@ -27,12 +26,12 @@ public class TaxHelper {
             switch (action) {
                 case "1":
                     System.out.print("Введите сумму дохода:");
-                    incomeCur = scanner.nextInt();
+                    int incomeCur = scanner.nextInt();
                     incomeSum = Account.calcIncomeSum(incomeCur, incomeSum);
                     break;
                 case "2":
                     System.out.print("Введите сумму расхода:");
-                    outcomeCur = scanner.nextInt();
+                    int outcomeCur = scanner.nextInt();
                     outcomeSum = Account.calcOutcomeSum(outcomeCur, incomeSum, outcomeSum);
                     break;
                 case "3":
