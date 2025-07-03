@@ -13,7 +13,6 @@ public class TaxHelper {
         int incomeSum = 0;
         int outcomeSum = 0;
 
-
         printGreetings();
 
         boolean isRunning = true;
@@ -52,7 +51,6 @@ public class TaxHelper {
 
         scanner.close();
         System.out.println("Работа завершена! Хорошего дня!");
-
     }
 
     public static void printGreetings() {
