@@ -31,7 +31,6 @@ public class Main {
                 case "2":
                     System.out.print("Введите сумму расхода:");
                     outcomeSum += Integer.parseInt(sc.nextLine());
-                    ;
                     break;
                 case "3":
                     System.out.println("Выберите систему налогообложения:");
@@ -54,8 +53,10 @@ public class Main {
             System.out.println(getCalcTaxInfo(TAX_6_DESCR, taxAmoun6, taxAmoun15));
         } else {
             if (taxAmoun6 != 0) {
-                System.out.printf("Можете выбрать любую систему УСН\n" +
-                        "Ваш налог: %d\n", taxAmoun6);
+                System.out.printf("""
+                        Можете выбрать любую систему УСН
+                        Ваш налог: %d
+                        """, taxAmoun6);
             } else System.out.println("В данном периоде невозможно посчитать налоги!");
         }
 
@@ -82,10 +83,12 @@ public class Main {
 
     public static void printActions() {
 
-        System.out.println("Выберите операцию и введите её номер:\n" +
-                "                    1 - Добавить новый доход\n" +
-                "                    2 - Добавить новый расход\n" +
-                "                    3 - Выбрать систему налогообложения\n" +
-                "                    Наберите end для выхода из программы\n");
+        System.out.println("""
+                Выберите операцию и введите её номер:
+                                    1 - Добавить новый доход
+                                    2 - Добавить новый расход
+                                    3 - Выбрать систему налогообложения
+                                    Наберите end для выхода из программы
+                """);
     }
 }
