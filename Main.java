@@ -8,7 +8,6 @@ public class Main {
     final static String TAX_6_DESCR = "УСН доходы";
     final static String TAX_15_DESCR = "УСН Доходы-минус-Расходы";
 
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -31,7 +30,8 @@ public class Main {
                     break;
                 case "2":
                     System.out.print("Введите сумму расхода:");
-                    outcomeSum += Integer.parseInt(sc.nextLine());;
+                    outcomeSum += Integer.parseInt(sc.nextLine());
+                    ;
                     break;
                 case "3":
                     System.out.println("Выберите систему налогообложения:");
@@ -46,24 +46,20 @@ public class Main {
 
     public static void selectTax(int incomeSum, int outcomeSum) {
         int taxAmoun6 = calcTax6(incomeSum);
-        int taxAmoun15 = calcTax15(incomeSum,outcomeSum);
+        int taxAmoun15 = calcTax15(incomeSum, outcomeSum);
 
-        if(taxAmoun6 > taxAmoun15) {
-            System.out.println(getCalcTaxInfo(TAX_15_DESCR, taxAmoun15,taxAmoun6));
-        }
-        else if (taxAmoun6 < taxAmoun15) {
-            System.out.println(getCalcTaxInfo(TAX_6_DESCR, taxAmoun6,taxAmoun15));
-        }
-        else {
-            if(taxAmoun6!=0) {
+        if (taxAmoun6 > taxAmoun15) {
+            System.out.println(getCalcTaxInfo(TAX_15_DESCR, taxAmoun15, taxAmoun6));
+        } else if (taxAmoun6 < taxAmoun15) {
+            System.out.println(getCalcTaxInfo(TAX_6_DESCR, taxAmoun6, taxAmoun15));
+        } else {
+            if (taxAmoun6 != 0) {
                 System.out.printf("Можете выбрать любую систему УСН\n" +
                         "Ваш налог: %d\n", taxAmoun6);
-            }
-            else System.out.println("В данном периоде невозможно посчитать налоги!");
+            } else System.out.println("В данном периоде невозможно посчитать налоги!");
         }
 
     }
-
 
     public static int calcTax6(int incomeSum) {
         return incomeSum * TAX_6 / 100;
@@ -74,14 +70,14 @@ public class Main {
         return Math.max(taxAmount, 0);
     }
 
-    public static String getCalcTaxInfo (String taxDescr, int TaxAmountOne, int TaxAmountTwo) {
-         return String.format("""
-                         Мы рекомендуем %s
-                         Ваш налог: %d (руб.)
-                         Налог на другой системе: %d (руб.)
-                         Экономия: %d (руб.)
-                         """,
-                        taxDescr, TaxAmountOne,TaxAmountTwo, abs(TaxAmountOne -TaxAmountTwo));
+    public static String getCalcTaxInfo(String taxDescr, int TaxAmountOne, int TaxAmountTwo) {
+        return String.format("""
+                        Мы рекомендуем %s
+                        Ваш налог: %d (руб.)
+                        Налог на другой системе: %d (руб.)
+                        Экономия: %d (руб.)
+                        """,
+                taxDescr, TaxAmountOne, TaxAmountTwo, abs(TaxAmountOne - TaxAmountTwo));
     }
 
     public static void printActions() {
